@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 11:35:32 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/05 11:24:00 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/05 12:11:31 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int main( void ) {
     Point a4(Fixed(0), Fixed(0));
     Point b4(Fixed(10), Fixed(30));
     Point c4(Fixed(20), Fixed(0));
-    Point point4(Fixed(10), Fixed(-0.01f));
+    Point point4(Fixed(10), Fixed(0.01f));
 
     std::cout << "         B(10,30)          " << std::endl;
     std::cout << "           / \\            " << std::endl;
@@ -116,7 +116,33 @@ int main( void ) {
     std::cout << "[Point B] x: " << b4.getX() << " y: " << b4.getY() << std::endl;
     std::cout << "[Point C] x: " << c4.getX() << " y: " << c4.getY() << std::endl;
     std::cout << "[Point Point] x: " << point4.getX() << " y: " << point4.getY() << std::endl;
-    std::cout << "Is Point inside? " << std::boolalpha << bsp(a4, b3, c4, point4) << std::endl;
+    std::cout << "Is Point inside? " << std::boolalpha << bsp(a4, b4, c4, point4) << std::endl;
+
+    std::cout << std::endl;
+    std::cout << "-----------------------------------------------" << std::endl;
+    std::cout << std::endl;
+
+    // Outside
+    Point a5(Fixed(0), Fixed(0));
+    Point b5(Fixed(10), Fixed(30));
+    Point c5(Fixed(20), Fixed(0));
+    Point point5(Fixed(10), Fixed(30));
+
+    std::cout << "         B(10,30) && P     " << std::endl;
+    std::cout << "           / \\            " << std::endl;
+    std::cout << "          /   \\           " << std::endl;
+    std::cout << "         /     \\          " << std::endl;
+    std::cout << "        /       \\         " << std::endl;
+    std::cout << "       /         \\        " << std::endl;
+    std::cout << "A(0,0) ----------- C(20,0) " << std::endl;
+
+    std::cout << std::endl;
+
+    std::cout << "[Point A] x: " << a5.getX() << " y: " << a5.getY() << std::endl;
+    std::cout << "[Point B] x: " << b5.getX() << " y: " << b5.getY() << std::endl;
+    std::cout << "[Point C] x: " << c5.getX() << " y: " << c5.getY() << std::endl;
+    std::cout << "[Point Point] x: " << point5.getX() << " y: " << point5.getY() << std::endl;
+    std::cout << "Is Point inside? " << std::boolalpha << bsp(a5, b5, c5, point5) << std::endl;
 
     return 0;
 }

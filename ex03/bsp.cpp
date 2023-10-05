@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:33:38 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/04 16:00:20 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/05 12:14:39 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,30 @@ float area(Point const a, Point const b, Point const c)
     if (area >= 0.0f)
         return area;
     return area * -1;
+    
 }
 
 bool bsp( Point const a, Point const b, Point const c, Point const point) {
-    /* Calculate area of triangle ABC */
+    // Calculate area of triangle ABC
     float A = area (a, b, c);
 
-    /* Calculate area of triangle PointBC */ 
+    // Calculate area of triangle PointBC
     float A1 = area (point, b, c);
+    // std::cout << "A1 area " << A1 << std::endl;
 
-    /* Calculate area of triangle PointAC */ 
+    // Calculate area of triangle PointAC
     float A2 = area (point, a, c);
+    // std::cout << "A2 area " << A2 << std::endl;
 
-    /* Calculate area of triangle PointAB */  
+    // Calculate area of triangle PointAB
     float A3 = area (point, a, b);
+    // std::cout << "A3 area " << A3 << std::endl;
 
-    /* Check if sum of A1, A2 and A3 is same as A */
+    // If any of the areas is 0 means the point is on the edge or vertice of the triangle
+    // The subject considers this false
+    if (A1 == 0 || A2 == 0 || A3 == 0)
+        return false;
+
+    // Check if sum of A1, A2 and A3 is same as A
     return (A == A1 + A2 + A3);
 }
