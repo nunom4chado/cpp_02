@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 11:35:32 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/05 12:11:31 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/11 11:04:01 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 #include "Point.hpp"
 
 int main( void ) {
+
+
+    // Point a(Fixed(0), Fixed(0));
+    // Point b(Fixed(10.28f), Fixed(30.12f));
+    // b = a;
+    // std::cout << "[Point A] x: " << a.getX() << " y: " << a.getY() << std::endl;
+    // std::cout << "[Point B] x: " << b.getX() << " y: " << b.getY() << std::endl;
+
+
 
     std::cout << std::endl;
     

@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:57:38 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/05 11:16:15 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/11 11:02:04 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,18 @@ Point::~Point( void ) {
     // std::cout << "Destructer called" << std::endl;
 }
 
-Point::Point( Point const & src ) {
+Point::Point( Point const & src ): _x(src.getX()), _y(src.getY()) {
     // std::cout << "Copy constructer called" << std::endl;
-    *this = src;
 }
 
-Point & Point::operator=( Point const & rhs ) {
+Point & Point::operator=( Point & rhs ) {
     // std::cout << "Copy assigment operator overload called" << std::endl;
-    if (this != &rhs) {
-        this->_x = rhs.getX();
-        this->_y = rhs.getY();
-    }
 
+    // This will get ignored! we can't assign a new value to a const
+    if ( this != &rhs ) {
+        (Fixed) this->_x = rhs.getX();
+        (Fixed) this->_y = rhs.getY();
+    }
     return *this;
 }
 
